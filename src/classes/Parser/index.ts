@@ -1,4 +1,4 @@
-import chalk, { ChalkInstance } from 'chalk';
+import chalk, { ChalkFunction } from 'chalk';
 import { init } from './methods/init';
 import { Command } from 'commander';
 import { Options } from '../../types';
@@ -65,7 +65,7 @@ export class Parser {
     });
   }
 
-  displayOutput(string: string, chalkWrapper?: ChalkInstance) {
+  displayOutput(string: string, chalkWrapper?: ChalkFunction) {
     if (this.options.silent) {
       return;
     }
