@@ -3,6 +3,7 @@ import { Parser } from '.';
 import { FileStream } from '../FileStream';
 import { calculateTopValues, getUniqueValues } from '../../helpers';
 import { Options } from '../../types';
+import { ChalkFunction } from 'chalk';
 
 const mockOptions = {
   file: 'test.log',
@@ -129,6 +130,20 @@ describe('Parser', () => {
     await expect(spliceSpy).toHaveBeenCalledWith(0, mockOptions.activeIps);
   });
 
+  it('should call the get methods even when silent is set', async () => {
+    parser.options.silent = true;
+    const spyGetUniqueIpCount = jest.spyOn(parser, 'getUniqueIpCount');
+    const spyGetTopUrls = jest.spyOn(parser, 'getTopUrls');
+    const spyGetActiveIps = jest.spyOn(parser, 'getActiveIps');
+
+    parser.run();
+    parser.data?.emit('end');
+
+    await expect(spyGetUniqueIpCount).toHaveBeenCalled();
+    await expect(spyGetTopUrls).toHaveBeenCalled();
+    await expect(spyGetActiveIps).toHaveBeenCalled();
+  });
+
   it('should throw an error if no file is specified', () => {
     parser.options = {} as unknown as Options;
 
@@ -143,13 +158,30 @@ describe('Parser', () => {
     expect(FileStream).toHaveBeenCalledWith(mockOptions.file);
   });
 
-  it('should return without logging if silent is set', async () => {
+  it('should log with chalk if provided', async () => {
     jest.resetAllMocks();
-    parser.options.silent = true;
     const spyConsoleLog = jest.spyOn(console, 'log');
 
-    parser.run();
-    parser.data?.emit('end');
+    parser.displayOutput('test', jest.fn() as unknown as ChalkFunction);
+
+    await expect(spyConsoleLog).toHaveBeenCalled();
+  });
+
+  it('should log without chalk if not provided', async () => {
+    jest.resetAllMocks();
+    const spyConsoleLog = jest.spyOn(console, 'log');
+
+    parser.displayOutput('test');
+
+    await expect(spyConsoleLog).toHaveBeenCalled();
+  });
+
+  it('should not log if silent option is set', async () => {
+    jest.resetAllMocks();
+    const spyConsoleLog = jest.spyOn(console, 'log');
+
+    parser.options.silent = true;
+    parser.displayOutput('test');
 
     await expect(spyConsoleLog).not.toHaveBeenCalled();
   });

@@ -1,3 +1,4 @@
+import chalk, { ChalkInstance } from 'chalk';
 import { init } from './methods/init';
 import { Command } from 'commander';
 import { Options } from '../../types';
@@ -38,29 +39,43 @@ export class Parser {
 
     this.parseData();
 
-    if (this.options.silent) {
-      return;
-    }
-
     this.data?.on('end', () => {
       if (this.options.uniqueIpCount) {
-        console.log(this.getUniqueIpCount());
+        const uniqueIpCount = this.getUniqueIpCount();
+        this.displayOutput(`Unique IP count: ${uniqueIpCount}`, chalk.green);
       }
 
       if (
         typeof this.options.topUrls === 'number' &&
         this.options.topUrls > 0
       ) {
-        console.log(this.getTopUrls());
+        const topUrls = this.getTopUrls();
+        this.displayOutput('Top URLs:', chalk.blue);
+        this.displayOutput(topUrls.join('\n'), chalk.blue);
       }
 
       if (
         typeof this.options.activeIps === 'number' &&
         this.options.activeIps > 0
       ) {
-        console.log(this.getActiveIps());
+        const activeIps = this.getActiveIps();
+        this.displayOutput('Active IPs:', chalk.yellow);
+        this.displayOutput(activeIps.join('\n'), chalk.yellow);
       }
     });
+  }
+
+  displayOutput(string: string, chalkWrapper?: ChalkInstance) {
+    if (this.options.silent) {
+      return;
+    }
+
+    if (chalkWrapper) {
+      console.log(chalkWrapper(string));
+      return;
+    }
+
+    console.log(string);
   }
 
   getUniqueIpCount() {
