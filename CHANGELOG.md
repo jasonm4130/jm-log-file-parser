@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/jasonm4130/jm-log-file-parser/compare/v1.1.0...v1.1.1) (2024-08-31)
+
+
+### Bug Fixes
+
+* **release-pipeline:** added action to auto accept PR from actions bot ([0892a23](https://github.com/jasonm4130/jm-log-file-parser/commit/0892a23e210521a05fe153760def8c2e72760965))
+
 ## [1.1.0](https://github.com/jasonm4130/jm-log-file-parser/compare/v1.0.2...v1.1.0) (2024-08-31)
 
 
