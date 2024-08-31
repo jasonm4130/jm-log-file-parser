@@ -4,10 +4,9 @@ on:
   push:
     branches:
       - main
-
-permissions:
-  contents: write
-  pull-requests: write
+  pull_request_target:
+    branches:
+      - main
 
 jobs:
   test:
@@ -33,6 +32,9 @@ jobs:
   release-please:
     needs: [test, lint]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - uses: googleapis/release-please-action@v4
         id: release
@@ -54,3 +56,12 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
         if: ${{ steps.release.outputs.release_created }}
+
+  auto-approve:
+    needs: [release-please]
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    if: github.actor == 'github-actions[bot]'
+    steps:
+      - uses: hmarr/auto-approve-action@v4
