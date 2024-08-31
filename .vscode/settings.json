@@ -1,0 +1,21 @@
+{
+  // Set our custom project settings
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#756AB6",
+    "titleBar.activeForeground": "#E0AED0",
+    "titleBar.inactiveBackground": "#AC87C5",
+    "titleBar.inactiveForeground": "#FFE5E5"
+  },
+  // Set some default editor settings for formatting
+  "editor.formatOnSave": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript|javascriptreact|typescript|typescriptreact]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "editor.codeActionsOnSave": [
+    "source.fixAll",
+    "source.fixAll.eslint",
+    "source.fixAll.prettier"
+  ]
+}

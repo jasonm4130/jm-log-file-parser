@@ -1,0 +1,44 @@
+{
+  "name": "jm-log-parser",
+  "version": "1.0.0",
+  "description": "tech test data log reader",
+  "main": "src/index.ts",
+  "bin": {
+    "jm-log-parser": "bin/index.js"
+  },
+  "scripts": {
+    "compile": "tsc",
+    "compile:watch": "tsc -w",
+    "start": "node bin/index.js",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "volta": {
+    "node": "20.17.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^22.5.1",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "eslint": "^9.9.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.9.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.3",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.3.0"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0"
+  }
+}
