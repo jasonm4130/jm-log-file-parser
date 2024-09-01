@@ -15,8 +15,6 @@ export class Log {
       /(?<ip>(?:\d{1,3}\.){3}\d{1,3}|[0-9a-fA-F:]+) - (?<userName>.+) \[(?<timestamp>\d{2}\/\w{3}\/\d{4}:?\d{2}:\d{2}:\d{2} \+?\d{4})\] "(?<method>GET|HEAD|POST|PUT|DELETE|CONNECT|OPTIONS|TRACE|PATCH|) (?<path>\S+) (?<protocol>\S+)" (?<statusCode>\d{3}) (?<bytes>\d+) "(?<referrer>.+)" "(?<userAgent>.+)"$/;
     const match = log.match(regex);
 
-    console.log(log);
-
     this.ip = match?.groups?.ip || null;
     this.timeString = match?.groups?.timestamp || null;
     this.url = match?.groups?.path || null;
