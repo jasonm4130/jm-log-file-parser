@@ -1,8 +1,16 @@
 # Log File Parser
 
+![example branch parameter](https://github.com/jasonm4130/jm-log-file-parser/actions/workflows/ci.yml/badge.svg?branch=main)
+
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+
 This is a simple log file parser that reads a Nginx access log file and returns some statistics about it.
 The log file parser has been built using Typescript and is designed to run on the Node.js runtime.
 It has been built to handle large log files and is able to parse them in a streaming fashion.
+
+[NPM Package](https://www.npmjs.com/package/jm-log-parser)
+
+[GitHub Repository](https://github.com/jasonm4130/jm-log-file-parser)
 
 ## Installation
 
