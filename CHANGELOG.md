@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/jasonm4130/jm-log-file-parser/compare/v1.1.2...v1.2.0) (2024-09-01)
+
+
+### Features
+
+* **options:** updated option caculation, and added integration tests for entire script ([33d30e8](https://github.com/jasonm4130/jm-log-file-parser/commit/33d30e8e4c86b6fd46c3a05b32c26b7636f05d52))
+
 ## [1.1.2](https://github.com/jasonm4130/jm-log-file-parser/compare/v1.1.1...v1.1.2) (2024-09-01)
 
 
