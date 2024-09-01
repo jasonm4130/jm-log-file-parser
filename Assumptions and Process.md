@@ -45,3 +45,5 @@ The thought process that was followed to implement the log file parser is as fol
   * I started writing integration tests then to ensure that the output was as expected based on options passed, this will help with confidence in the future when extending the tool.
 
 Additionally, when I was confident in the CLI tool, I also implemented GitHub actions and an NPM package name to allow for publishing the tool. This was done to ensure that the tool could be easily installed and used by others. I also added a README.md file to the project to provide instructions on how to install and use the log file parser.
+
+The actions are based on [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) and [Semantic Versioning](https://semver.org/), and are set up to run the tests and linting on each push to the main branch, and to publish a new version of the NPM package when a new tag is pushed to the repository. The action pushes a PR with the version release, I would ideally like to automate this further, but I have not fully explored this yet.
