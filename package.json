@@ -1,6 +1,6 @@
 {
   "name": "jm-log-parser",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "tech test data log reader",
   "main": "src/index.ts",
   "bin": {
