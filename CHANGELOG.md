@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/jasonm4130/jm-log-file-parser/compare/v1.1.1...v1.1.2) (2024-09-01)
+
+
+### Bug Fixes
+
+* **debug-removal:** removed debugging log ([7e9c3a6](https://github.com/jasonm4130/jm-log-file-parser/commit/7e9c3a6e9d3ec767b562b7361c80566ec9000a56))
+
 ## [1.1.1](https://github.com/jasonm4130/jm-log-file-parser/compare/v1.1.0...v1.1.1) (2024-08-31)
 
 
