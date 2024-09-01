@@ -1,5 +1,5 @@
 import { Parser } from '..';
-import { init } from './init';
+import { init, processOption } from './init';
 import path from 'path';
 
 jest.mock('..', () => ({
@@ -54,17 +54,17 @@ describe('init', () => {
       'Output nothing',
     );
     expect(parser.program.option).toHaveBeenCalledWith(
-      '--unique-ip-count',
+      '--unique-ip-count [boolean]',
       'Output the unique IP count',
       true,
     );
     expect(parser.program.option).toHaveBeenCalledWith(
-      '--top-urls <number|boolean>',
+      '--top-urls [number|boolean]',
       'Output URLs with the most hits, or false to disable',
       '3',
     );
     expect(parser.program.option).toHaveBeenCalledWith(
-      '--active-ips <number|boolean>',
+      '--active-ips [number|boolean]',
       'Output IPs with the most hits, or false to disable',
       '3',
     );
@@ -96,5 +96,22 @@ describe('init', () => {
 
     expect(parser.options.topUrls).toBe(5);
     expect(parser.options.activeIps).toBe(10);
+  });
+});
+
+describe('processOption', () => {
+  it('should process a boolean option', () => {
+    expect(processOption(true)).toBe(3);
+    expect(processOption(false)).toBe(false);
+  });
+
+  it('should process a string option', () => {
+    expect(processOption('true')).toBe(3);
+    expect(processOption('false')).toBe(false);
+    expect(processOption('5')).toBe(5);
+  });
+
+  it('should return the default count if the option is invalid', () => {
+    expect(processOption('invalid')).toBe(3);
   });
 });
