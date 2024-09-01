@@ -12,7 +12,6 @@ export function init(this: Parser) {
   this.program
     .version('1.0.0')
     .requiredOption('-f, --file <file>', 'The file to parse')
-    .option('-d, --debug', 'Output extra debugging')
     .option('-s, --silent', 'Output nothing')
     .option('--unique-ip-count [boolean]', 'Output the unique IP count', true)
     .option(
