@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/jasonm4130/jm-log-file-parser/compare/v1.2.0...v1.2.1) (2024-09-01)
+
+
+### Bug Fixes
+
+* trigger build ([83b0171](https://github.com/jasonm4130/jm-log-file-parser/commit/83b01717bd7c7b9d4b7001c49627895f6956ce42))
+
 ## [1.2.0](https://github.com/jasonm4130/jm-log-file-parser/compare/v1.1.2...v1.2.0) (2024-09-01)
 
 
